@@ -86,70 +86,7 @@ const Dashboard = () => {
           <AlertTriangle size={16} /> Refresh Store Data
         </button>
       </div>
-      <div className="kpi-grid">
-        <KPICard
-          title="Total Revenue"
-          value={`Rs. ${stats.totalRevenue.toLocaleString()}`}
-          icon={<DollarSign size={24} />}
-          trend={12.5}
-          status="success"
-        />
-        <KPICard
-          title="Total Orders"
-          value={stats.totalOrders}
-          icon={<ShoppingBag size={24} />}
-          trend={8.2}
-          status="info"
-        />
-        <KPICard
-          title="In Stock Items"
-          value={stats.inStockItems}
-          icon={<Package size={24} />}
-          status="success"
-        />
-        <KPICard
-          title="Low Stock Alerts"
-          value={stats.lowStockCount}
-          icon={<AlertTriangle size={24} />}
-          status="warning"
-        />
-      </div>
-
-      <div className="dashboard-grid">
-        <div className="admin-card sales-overview">
-          <div className="card-header">
-            <h3>Sales Overview</h3>
-            <button className="view-all" onClick={() => setIsReportOpen(true)}>
-              View Report <ArrowUpRight size={16} />
-            </button>
-          </div>
-          <div className="chart-placeholder">
-            {/* Simple Dynamic SVG Chart */}
-            <svg viewBox="0 0 400 150" className="sales-chart">
-              <defs>
-                <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor="var(--primary)" stopOpacity="0.2" />
-                  <stop offset="100%" stopColor="var(--primary)" stopOpacity="0" />
-                </linearGradient>
-              </defs>
-              <path
-                d="M0,130 Q50,110 100,120 T200,80 T300,90 T400,60"
-                fill="none"
-                stroke="var(--primary)"
-                strokeWidth="3"
-                strokeLinecap="round"
-              />
-              <path
-                d="M0,130 Q50,110 100,120 T200,80 T300,90 T400,60 V150 H0 Z"
-                fill="url(#gradient)"
-              />
-            </svg>
-            <div className="chart-labels">
-              <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
-            </div>
-          </div>
-        </div>
-
+      
         <GrowthReportModal isOpen={isReportOpen} onClose={() => setIsReportOpen(false)} />
 
         <div className="admin-card recent-orders">
